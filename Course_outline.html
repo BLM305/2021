@@ -8,17 +8,25 @@
     <title>Course Outline</title>
 
   <style>
-    body { max-width: 600px; font: 15px arial; }
+    body { 
+      max-width: 400px; 
+      font: 15px arial;
+      background: wheat;
+    }
     table { border-collapse: collapse; }
     td {
-      border: 1px solid blue;
+      border: 0.5px solid black;
       padding: 6px;
     }
+    td:nth-child(odd) {
+      text-align: center;
+    }
+
   </style>
   </head>
 
   <body>
-<h3>Tentative Outline -- BLM 305</h3>
+<h3>Tentative Outline -- BLM 305 (2021)</h3>
 <table>
   <thead>
     <tr>
@@ -41,8 +49,8 @@
     </tr>
     <tr>
       <td>2</td>
-      <td><a href="work/Counting.html">Web page</a>, <!-- <a href="GitHub Kılavuzu"></a> -->GitHub
-        <br><!-- <a href="work/chap4.html"></a> -->Objects, JSON, GitKraken
+      <td><a href="work/Counting.html">Web page</a>, <!-- <a href="GitHub Kılavuzu"></a> -->Git/GitHub
+        <br><!-- <a href="work/chap4.html"></a> -->JSON, VS Code
       </td>
       <td>13<br>4</td>
       <td><a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML</a><br>
@@ -53,7 +61,7 @@
     <tr>
       <td>3</td>
       <td>Higher-order Functions<br>Inspector</td>
-      <td>5<br>6</td>
+      <td>5<br>&nbsp; </td>
       <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>
       <br>&nbsp;
       </td>
@@ -62,14 +70,14 @@
       <td>4</td>
       <td>Keyed collections<br>
         <!-- <a href="exam/Quiz_solution.html"> -->Quiz</a></td>
-      <td></td>
+      <td>6<br>&nbsp; </td>
       <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Keyed_collections">Set and Map</a>
       <br>&nbsp;
       </td>
     </tr>
     <tr>
       <td>5</td>
-      <td>Asynchronous Programming<br>
+      <td>Asynch Programming<br>
         <!-- <a href="work/Students.html"> -->Fetching Remote Files</a></td>
       <td>11</td>
       <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">
@@ -85,51 +93,81 @@
     </tr>
    <tr>
       <td>7</td>
-      <td><!-- <a href="work/Timing.html"> -->CSS Animations<br><!-- <a href="exam/Quiz2"> -->Quiz</a></td>
-      <td>14<br> </td>
+      <td><!-- <a href=""> -->SubtleCrypto:</a> SHA-1<br>
+        <!-- <a href="exam/Quiz2"> -->Quiz</a></td>
+      <td></td>
       <td>
-        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API">
-        Animation</a><br> &nbsp;
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest">
+        digest()</a><br> &nbsp;
       </td>
     </tr>
-    <tr>
-      <td>8</td>
-      <td>Web API: Speech</a></td>
-      <td></td>
-      <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API">Speech_API</a></td>
-    </tr>
-    <tr>
-      <td>9</td>
-      <td>External API: <!-- <a href="work/Weather.html"> -->Weather</td>
-      <td></td>
-      <td><a href="https://api.openweathermap.org">OpenWeather</a></td>
-    </tr>
-    <tr>
-      <td>10</td>
-      <td>Web API: Graphics</td>
-      <td>17</td>
-      <td><a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">Canvas</a></td>
-    </tr>
-    <tr>
-      <td>11</td>
-      <td>External API: Maps</td>
-      <td></td>
-      <td><a href="https://docs.mapbox.com/mapbox-gl-js/api/">Mapbox GL</a></td>
-    </tr>
-    <tr>
-      <td>12</td>
-      <td><!-- <a href="work/ImageInspector.html"> -->Image Processing</a></td>
-      <td> </td>
-      <td><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform">Transform</a></td>
-    </tr>
-    <tr>
-      <td>13</td>
-      <td>External API: Cloud<br>
-        </td>
-      <td> </td>
-      <td><a href='https://developers.google.com/drive/api/v3/quickstart/js'>Google Drive</a> </td>
-    </tr>
-    <tr>
+    <td>8</td>
+    <td>JS Animations <br>Handling Events
+      <!--<a href="https://blm305.github.io/2020/work/JS_Animation.html">
+      JS Animation</a> <br>
+      <a href="https://maeyler.github.io/JS/hard/Propagation.html">
+      Handling Events</a> -->
+    </td>
+    <td>14<br>15</td>
+    <td>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API">
+      Animation</a><br>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a></td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>PWA, await <br>External API: Users
+      <!--<a href="https://maeyler.github.io/JS/PWA_EN">PWA</a>,
+      <a href="https://blm305.github.io/2020/anim/Animation.html">HW#3</a>,
+      <a href="https://blm305.github.io/2020/work/await.html">await</a> <br>
+      External API: <a href="https://blm305.github.io/2020/work/GitHub_Users.html">Users</a> -->
+      </td>
+    <td></td>
+    <td><a href="https://javascript.info/async-await">
+      async/await</a><br>
+      <a href="https://docs.github.com/en/free-pro-team@latest/rest/reference/users#get-a-user">
+      GitHub users</a></td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>External API: Weather <br>Git 2, Graphics
+      <!-- <a href="https://blm305.github.io/2020/work/Weather.html">Weather</a>
+      <br><a href="https://blm305.github.io/2020/github/tak%C4%B1mlar">Git 2</a>, <a href="https://blm305.github.io/2020/work/Graphics.html">Graphics</a> -->
+    </td>
+    <td>&nbsp; <br>17</td>
+    <td><a href="https://api.openweathermap.org/">OpenWeather</a><br>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">Canvas</a></td>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td>External API: Maps <br>Open Map, Leaflet
+      <!-- <a href="https://maeyler.github.io/JS/#API">Maps</a>
+      <br><a href="https://blm305.github.io/2020/work/Open_Maps.html">Open Map</a>,
+      <a href="https://leafletjs.com/">Leaflet</a> -->
+    </td>
+    <td></td>
+    <td><a href="https://docs.mapbox.com/mapbox-gl-js/api/">Mapbox GL</a>
+      <br><a href="https://www.openstreetmap.org/">OpenStrMap</a></td>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td>Web API: Speech<br><!-- <a href="work/ImageInspector.html"> -->Image Processing</td>
+    <td>&nbsp;</td>
+    <td>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API">Speech_API</a>
+      <br><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform">Transform</a></td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td>Git 3, Drive teacher <br>Write to the cloud
+      <!-- <a href="https://blm305.github.io/2020/github/git_notes">Git 3</a>,
+      <a href="https://maeyler.github.io/JS/api/Drive_teacher.html">Drive teacher</a><br>
+      <a href="https://blm305.github.io/2020/work/Drive_API.html">Write to the cloud</a> -->
+      </td>
+    <td>&nbsp;</td>
+    <td><a href="https://developers.google.com/drive/api/v3/quickstart/js">Google Drive</a><br>&nbsp; </td>
+  </tr>
+  <tr>
       <td>14</td>
       <td><!-- <a href="projects.html"> -->Term Project</a></td>
       <td> </td>
@@ -143,13 +181,20 @@
     </tr>
   </tbody>
 </table>
-
+<br>
 <p><b>Links</b></p>
 <ul>
   <li><a href="http://eloquentjavascript.net/">Eloquent JavaScript</a>: our textbook</li>
   <li><a href="https://github.com/BLM305/2021/">GitHub repo</a>: programmer view</li>
   <li><a href="https://BLM305.github.io/2021/">GitHub docs</a>: public view</li>
 </ul>
+<br>
+<p><b>On Tuesday and Thursday 9-12</b></p>
+<pre>
+09:05 First lecture, 40 minutes
+10:00 Class work, one hour
+11:05 Second lecture, 40 minutes
+</pre>
 
 <p><b>Grading</b></p>
 <pre>
@@ -159,7 +204,7 @@ Class work 30
 Project	   20	
 Final exam 20
 </pre>
-
+<br>
 <p><b>Attendance and regular class work is required</b>
 </p>
     </div>   
