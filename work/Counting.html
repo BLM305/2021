@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <link rel="icon" href="https://blm-fsmvu.github.io/305/images/icon192.png">
     <title>xxx </title>
 
   <style> /* CSS comment */
     body { max-width: 440px; }
-    #inp { width: 50px }
-    #out {
+    input { width: 50px }
+    .out {
         font-size: 18px;
         background: blue;
         color: white;
@@ -21,16 +20,16 @@
 
 <body>   <!-- HTML comment: Modify all items marked xxx -->
 
-<h2 id=title>This text is not shown. Why?</h2>
+<h2>This text is not shown. Why?</h2>
 xxx 
-<input type=number id=inp value=0 onChange="out.innerText=value">
+<input type=number value=0 onChange="out.innerText=value">
 &emsp;
-<input type=button value=xxx onClick="increment()">
-<p id=out>This text is not shown. Why?</p>
+<button onClick="increment()">xxx</button>
+<p class=out>0</p>
 
 <hr />
 <b>Sample code</b>
-<pre id=sample>This text is not shown. Why?</pre>
+<pre>This text is not shown. Why?</pre>
 
 <hr />
 <p>Ref: <a href="https://www.w3schools.com/js/" 
@@ -42,14 +41,12 @@ xxx
 // JavaScript comment
 function increment() {
     let c = Number(out.innerText)+1
-    console.log("counter = "+c);
-    out.innerText = c;
+    console.log("counter = "+c)
+    out.innerText = c
 }
-    //global variable id is the HTML element with id 
-    //const title = document.getElementById("title");
-    title.innerText = document.title;
-    sample.innerText = increment.toString();
-    out.innerText = 0; increment();
+document.querySelector('h2').innerText = document.title
+document.querySelector('pre').innerText = increment
+const out = document.querySelector('.out'); increment()
 </script>
 
 </body>
