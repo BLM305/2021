@@ -17,3 +17,5 @@ _Derse devam ve düzenli ödev yapmak gerekiyor_
       background: wheat;
     }
   </style>
+
+<script src="/2021/navbar.js"></script>
