@@ -21,10 +21,3 @@ Lab instructors:
 
 **Attendance and regular class work is required** <br>
 _Derse devam ve düzenli ödev yapmak gerekiyor_
-
-  <style>
-    body { 
-      max-width: 600px; 
-      background: wheat;
-    }
-  </style>
