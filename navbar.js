@@ -2,7 +2,6 @@
 const CSS =
 `body {
   margin-top: 40px;
-  user-select: none;
 }
 nav {
   width: 100%;
@@ -32,9 +31,12 @@ nav div {
 nav a {
   display: block;
   background: yellow;
-  color: black;
+  color: blue;
   text-decoration: none;
   border-bottom: 1px dotted gray;
+}
+nav a:visited {
+  color: purple;
 }
 nav a:last-child {
   border-bottom: none;
@@ -57,7 +59,7 @@ const NAV =
       <div class=menu>
         <a href="https://maeyler.github.io/JS/" target=BLM305>JS Examples</a>
         <a href="https://javascript.info/" target=BLM305>JS Tutorial</a>
-        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target=BLM305>MDN Web Docs</a>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction" target=BLM305>MDN Web Docs</a>
       </div>
     </li>
     <li class=Course>Course

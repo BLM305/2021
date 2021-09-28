@@ -14,6 +14,11 @@ Tools:
 * Version control: [git](https://git-scm.com/downloads) download
 * Repository: [GitHub](https://github.com/) sign in
 
+Lab instructors:
+* Kadir Aram: <karam(AT)fsm.edu.tr>
+* Zeki KUŞ: <zkus(AT)fsm.edu.tr>
+
+
 **Attendance and regular class work is required** <br>
 _Derse devam ve düzenli ödev yapmak gerekiyor_
 
