@@ -11,11 +11,14 @@
 **Attendance and regular class work is required** <br>
 _Derse devam ve düzenli ödev yapmak gerekiyor_
 
-  <style>
-    body { 
-      max-width: 600px; 
-      background: wheat;
-    }
-  </style>
-
+<link rel="icon" href="/2021/images/icon192.png">
 <script src="/2021/navbar.js"></script>
+<style>
+  body { 
+    max-width: 600px; 
+    background: wheat;
+  }
+  nav {
+    margin-left: 0;
+  }
+</style>
