@@ -26,6 +26,7 @@ const NAV =
 function setNavbar() {
   let nav = document.createElement('nav')
   nav.innerHTML = NAV
+  nav.id = 'navbar'
   document.body.append(nav)
   nav.querySelectorAll("li").forEach(li => {
     let div = li.firstElementChild
