@@ -23,6 +23,13 @@ Karmaşık HTML sayfalarını basitleştiren [MD formatını](https://guides.git
 
 Markdown denemeleriniz için [bir çevirmen](http://dillinger.io/) yararlı olacak
 
+### VS Code Extensions
+
+GitHub ile uygun çalışması için şu eklentiler gerekiyor:
+* Live Server -- Uzak bilgiye erişim (fetch)
+* Git Graph -- Commit'leri görmek ve reset
+* GitHub Pull Requests and Issues -- login, vb
+
 
 ### Git Command Line (CLI)
 
