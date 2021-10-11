@@ -32,8 +32,6 @@ function journalEvents() {
       EVENTS.add(e);
 }
 
-
-
 class Entry {
   constructor(evt, sq) {
     this.events = evt; this.squirrel = sq
