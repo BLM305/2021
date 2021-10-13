@@ -18,3 +18,11 @@ e.toString()  //"Entry: 3 events"
 ```
 
 <script src="/2021/navbar.js"></script>
+<style>
+  body { 
+    max-width: 600px; 
+  }
+  #navbar {
+    margin-left: 0;
+  }
+</style>

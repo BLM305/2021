@@ -32,10 +32,8 @@ Her iki soru için yazdığınız kodu ve çıktısını PDF içinde LMS'e ekley
 Use the browser tools (console) only -- no HTML, no files
 
 1. Translate Counting.html to Turkish. Also modify colors as you like.
-2. "Looping a triangle" exercise at the end of Chap 2:
-````
-s=''; while (     ) {s=   ; console.log(s)}
-````
+2. "Looping a triangle" exercise at the end of Chap 2: <br>
+`s=''; while (     ) {s=   ; console.log(s)}` <br>
 (just complete this line, no need to define a function) <br>
 Put into LMS a single screenshot showing both answers in the console.
 
