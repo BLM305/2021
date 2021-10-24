@@ -15,19 +15,19 @@
 
 <body>   <!-- HTML comment: Modify all items marked xxx -->
 
-<h2 id=title title="Modify xxx"></h2>
+<h2 id=title title="Put your name here"></h2>
 <p title="navigator.platform">
-  Platform: <span id=plat>??</span>
+  Platform: <span id=plat></span>
 </p>
-<p title="Battery level">
-  Battery level: <span id=level>??</span>
+<p title="Battery level (integer)">
+  Battery level: <span id=lev></span>
 </p>
-<p title="Latitude/Longitude">
-  Location: <span id=loc>??</span>
+<p title="Latitude/Longitude (4 digits)">
+  Location: <span id=loc></span>
 </p>
-<p title="URL exists?">
+<p title="Does the URL exist?">
   URL <input type=url id=url value="https://maeyler.github.io/"
-      onChange="check()"> <span id=resp>??</span>
+      onChange="check()"> <span id=resp></span>
 </p>
 <hr />
 <b>Sample code</b>
@@ -37,12 +37,25 @@
 
 <script>
 "use strict";
-// JavaScript comment
-function check() {
-//write your code here
-}
 function init() {
-//write your code here
+//complete the code below
+    plat.innerText = 'xxx';
+    navigator.geolocation
+      .getCurrentPosition(p =>
+        loc.innerText = 'xxx'
+      );
+    navigator.getBattery().then(b =>
+        lev.innerText = 'xxx'
+      );
+    check()
+}
+function check() {
+//complete the code below
+    fetch(url.value).then(r => 
+      resp.innerText = r.ok? 'OK' : 'xxx'
+    ).catch(e => 
+      resp.innerText = 'err'
+    )
 }
     title.innerText = document.title;
     sample.innerText = init+'\n'+check;
