@@ -1,7 +1,7 @@
 ## Object Diagram
 
 Make several variables and objects:
-```
+```javascript
 events = ['work', 'pizza', 'run']
 squirrel = false
 a = [events, squirrel]
@@ -10,7 +10,7 @@ e = new Entry(events, squirrel)
 ```
 ![Diagram](../images/objects.png)
 
-```
+```javascript
 a[0] == c.events  //true -- same object
 a.toString()  //"work,pizza,run,false"
 c.toString()  //"[object Object]"

@@ -1,17 +1,46 @@
 ## First Month
 
-### Oct 21 -- Quiz
+### Oct 28: CW#6 -- [Fetching Remote Files](CW6.html)
 * will be announced in LMS
 
-### Oct 19 -- CW#5
-* Keyed collections: Set and Map
-* will be announced in LMS
+### Oct 26: [Asynch Programming](Inspector.html)
+* Evaluation of HW1 (no class work)
 
-### Oct 14 -- CW#4
-* Object Inspector
-* will be announced in LMS
+### Oct 21: [Quiz](../exam/Quiz1_2021)
+<br>
 
-### Oct 12: CW#3 -- Text to Objects
+### Oct 19: CW#5 -- [Keyed collections](Inspector.html)
+
+Consider JOURNAL Array in chap4.js
+
+1. Show that each Entry has exactly one of these:<br>
+'work' and 'weekend' (use filter() twice)
+
+2. Make Object cnt that keeps number of each activity:<br>
+`cnt.pizza and cnt['pizza']` will return 10
+
+3. Make Map map with the same information:<br>
+`map.get('pizza')` will return 10
+
+4. Convert map to Object m and check equality:<br>
+`m={}; for (k of map.keys()) m[k]=map.get(k)`<br>
+`MENU.deepEqual(m, cnt)` will return true
+
+Your PDF should contain one or two screenshots
+
+
+### Oct 14: CW#4 -- [Object Inspector](Inspector.html)
+
+Open the object inspector:
+https://blm305.github.io/2021/work/Inspector.html
+
+1. Demonstrate Menu:
+* Invoke at least one method on each object in Menu
+* Test deepEqual() method on two Arrays with the same content
+
+2. Reload the page and invoke filter() and map() methods on Chap4 objects
+
+### Oct 12: CW#3 -- [Text to Objects](ObjectList.html)
 
 Copy this file to your local repo
 https://blm305.github.io/2021/work/ObjectList.html
@@ -20,7 +49,7 @@ https://blm305.github.io/2021/work/ObjectList.html
 * Demonstrate Array methods (map(), filter(), and two more) using this data
 * Put your code, your explanation, and a screen shot on the same PDF file
 
-### Oct 7: CW#2 -- Objects and Arrays
+### Oct 7: CW#2 -- [Objects and Arrays](chap4.html)
 
 1. Do "The sum of a range" exercise in Chap 4
 2. Modify analyze() method so that it counts the number days for each event type.
@@ -28,7 +57,7 @@ For instance,  pizza: 0.0686  10  -- last number is the day count for pizza
 
 Her iki soru için yazdığınız kodu ve çıktısını PDF içinde LMS'e ekleyin
 
-### Oct 5: CW#1 -- Browser tools
+### Oct 5: CW#1 -- [Browser tools](Counting.html)
 Use the browser tools (console) only -- no HTML, no files
 
 1. Translate Counting.html to Turkish. Also modify colors as you like.
