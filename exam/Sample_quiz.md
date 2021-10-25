@@ -1,9 +1,9 @@
 ﻿
-## 2020
+## Sample Quiz -- 2020
 
 ![2020](Quiz1_2020.jpg)
 
-## 2019 
+## Sample Quiz -- 2019 
 <br>
 
 ![Page 1](Quiz1.png)
