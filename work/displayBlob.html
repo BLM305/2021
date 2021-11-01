@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Remote URL or Local file </title>
+
+<style>
+  body { max-width: 500px; }
+  div { margin: 12px 0; }
+  img {
+    max-width: 100%;
+    border: 1px solid darkgray;
+  }
+  #remote {
+    width: 290px;
+    font: 13px arial, sans-serif;
+    margin: 14px 0;
+    border: 1px solid darkgray;
+    padding: 5px;
+  }
+  #sample, #out { overflow-x: auto; }
+  #disp1 { color: blue; }
+</style>
+</head>
+
+<body>
+<h2 id=title></h2>
+
+<div>
+  URL: 
+  <input type=text id=remote onchange='displayURL(this.value)'> <br>
+  <input type=file id=button onChange='displayBlob(this.files[0])'>
+</div>
+<div id=msg>Select text or image </div>
+<pre id=disp1></pre> <img id=disp2 />
+
+<hr>
+<b>Sample code</b>
+<pre id=sample></pre>
+<hr>
+
+<script>
+"use strict";
+const RDR = new FileReader();
+function displayURL(u) {
+    fetch(u).then(console.log) //call r.blob()
+            .then(displayBlob)
+            .catch(console.error)
+}
+function displayBlob(f) {
+    console.assert(f instanceof Blob)
+    msg.innerText = f.size+" bytes "+f.type
+    disp1.innerText = ""; disp2.src = ""
+    if (f.type.startsWith("image")) {
+        RDR.readAsDataURL(f); //display image
+        RDR.onload = () => console.log(f, RDR)
+    } else if (f.type.startsWith("text")) {
+        RDR.readAsText(f);  //display text
+        RDR.onload = () => console.log(f, RDR)
+    } else {
+        msg.innerText += " -- Unknown"
+    }
+}
+title.innerText = document.title
+sample.innerText = displayURL+'\n'+displayBlob
+</script>
+
+</body>
+</html>

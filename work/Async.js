@@ -1,60 +1,55 @@
 "use strict";
-var ASYNC; //Async instance
+var ASYNC; //singleton instance
 const RDR2 = new FileReader();
-RDR2.onload = function() { display(RDR2) };
+RDR2.onload = () => display(RDR2);
 function fileSelect(t) { 
 //target t is the file selection HTMLInputElement
-    let a = t.files; //display(t);
+    let a = t.files;
     if (a.length == 0) return;
     display(RDR2);
     if (a.length == 1) {
-        let f = a[0]; display(f);
-        ASYNC.displayFile(f)
+      let [f] = a; display(f);
+      ASYNC.displayBlob(f)
     } else {
-        display(a);
-        let s = "";
-        for (let f of a) 
-            s += f.name+" "+f.size+" bytes "+NL;
-        ASYNC.displayText(s)
+      display(a);
+      a = [...a].map(f => f.name+" "+f.size+" bytes")
+      ASYNC.displayText(a.join('\n'))
     }
 }
 
 class Async extends Menu {
-  constructor() {
-    super(); ASYNC = this;
+  constructor(pre, img) {
+    super();  //singleton class
+    if (ASYNC) throw 'multiple instances not allowed'
+    ASYNC = this; this.pre = pre; this.img = img;
     this.navigator = navigator;
     this.clipboard = navigator.clipboard;
     this.geolocation = navigator.geolocation;
     this.reader = RDR2  //defined above
   }
   isTextFile(f) {
-    console.assert(f instanceof File);
-    return f.type.startsWith("text") || f.name.endsWith(".md")
-         || f.name.endsWith(".js") || f.name.endsWith(".java");
+    const EXT = [".js", ".java", ".json", ".md"]
+    return f.type.startsWith("text") 
+        || EXT.some(x => f.name.endsWith(x))
   }
-  displayFile(f) {
-    console.assert(f instanceof File); let M = this;
+  displayBlob(f) {
+    console.assert(f instanceof Blob); let M = this;
+    if (!f.name) f.name = "???";
     console.log(f.name+" "+f.size+" bytes "+f.type);
     if (f.type.startsWith("image")) {
-        RDR2.onload = function(evt) {
-            M.displayImage(RDR2.result)
-        };
         RDR2.readAsDataURL(f);
+        RDR2.onload = () => M.displayImage(RDR2.result)
     } else if (this.isTextFile(f)) {
-        RDR2.onload = function(evt) {
-            M.displayText(RDR2.result)
-        };
         RDR2.readAsText(f);
+        RDR2.onload = () => M.displayText(RDR2.result)
     } else {
-        this.displayText("Unknown")
+        this.displayText(f.name+" -- Unknown "+f.type)
     }
   }
   displayText(txt) {
-    disp1.innerText = txt; disp2.src = ""; 
-    return disp1
+    this.pre.innerText = txt; this.img.src = ""; 
   }
   displayImage(url) {
-    disp1.innerText = ""; disp2.src = url; 
-    return disp2
+    this.pre.innerText = ""; this.img.src = url; 
   }
 }

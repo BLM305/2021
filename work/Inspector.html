@@ -70,7 +70,7 @@ function init() {
     display(new Chap4());
     display(new Chap6());
     display(new Quiz());
-    MENU = new Async(); //global
+    MENU = new Async(disp1, disp2); //global
     MENU.displayText(TEXT)
     display(MENU); 
 }
