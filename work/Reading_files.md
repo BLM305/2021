@@ -19,6 +19,8 @@ _.clone() ⇒ Response kopyası
 _.text() ⇒ text olarak oku
 _.json() ⇒ object olarak oku
 ```
+![response](../images/response.png)
+
 fetch() ile gelen Response nesnesini kopyalayıp birinin text(), diğerinin json() metodunu çağırınca sonuçlar aynı yerde görünüyor.
 
 ![fetch json](../images/fetch_remote_text.png)
