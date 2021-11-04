@@ -1,0 +1,67 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<link rel="icon" href="../images/icon192.png">
+
+<script>
+"use strict";
+function elt(type, ...list) {
+  let e = document.createElement(type)
+  for (let c of list) {
+    e.appendChild(c instanceof Element? c
+             : document.createTextNode(c))
+  }
+  return e
+}
+const BOOK_REF = 
+  "http://eloquentjavascript.net/14_dom.html#h_AlX6HES+2D",
+  TITLE = "Page made by JavaScript",
+  TEXT = "No book can ever be finished. While working "
+    +"on it we learn just enough to find it immature "
+    +"the moment we turn away from it.",
+  AUTH = "Karl Popper", YEAR = ", 1950",
+  DESC = ", preface to the second editon of ",
+  BOOK = "The Open Society and Its Enemies";
+function makePage() {
+//<p>— <b>AUTH</b>DESC<i>BOOK</i>YEAR</p>
+  let para = elt("p", "— ",
+        elt("b", AUTH), DESC,
+        elt("i", BOOK), YEAR
+      )
+  let span = elt("span", TEXT)
+  span.style.color = "blue"
+  let bold = elt("b", "Sample code")
+  let pre  = elt("pre", makePage)
+  let link = elt("a", "Creating nodes")
+  link.href = BOOK_REF
+  document.title = TITLE
+  document.body = elt("body", 
+      elt("h2", TITLE), 
+      elt("hr"), 
+      elt("blockquote", span, para), 
+      elt("hr"), 
+      elt("div", bold, pre), 
+      elt("div", "Ref: ", link),
+      elt("hr")
+    )
+  document.body.style.maxWidth = "420px"
+}
+const tree = [], SPACE = '&emsp;', MAX = 26;
+function toTree(e, space) {
+  let c = e.firstChild
+  if (!c || c instanceof Element) c = ''
+  else c = SPACE+c.textContent
+  if (c.length>MAX+3) c = c.substring(0, MAX)+'…'
+  console.log(space.length, e.localName, c)
+  tree.push(space+'+ '+e.tagName+c)
+  for (let c of e.children)
+      toTree(c, space+SPACE)
+}
+function init() {
+  makePage(); toTree(document.body, '');
+  let t = elt("p"); t.style.color = "green";
+  t.innerHTML = tree.join('<br>');
+  document.body.append(t);
+}
+onload = init
+</script>
+<!-- The document body is made by the script above -->
