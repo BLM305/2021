@@ -75,8 +75,8 @@ subtle.digest('SHA-1', new TextEncoder().encode(M))
     <code>shasum</code> (ya da 
     <a href="https://shapeshed.com/unix-sha1sum/" target=NewTab>sha1sum</a>)
     standard yüklü, Windows'da ise
-<a href="https://www.microsoft.com/en-us/download/confirmation.aspx?id=11533"
-target=NewTab>fciv.exe</a> gibi bir yazılım indirmek gerekebilir.
+<a href="https://www.adaic.org/resources/add_content/standards/articles/SHA-1.html"
+target=NewTab>sha1sum.exe</a> gibi bir yazılım gerekebilir.
   </p>
   <hr>
 </div>
@@ -109,7 +109,7 @@ class Crypto extends Menu {
       let u = new URL(txt); display(u)
       MENU.shaFromURL(u)
     } else {
-      let b = MENU.bufferFromString(txt)
+      let b = new TextEncoder().encode(txt)
       MENU.shaFromBuffer(b)
     }
   }
