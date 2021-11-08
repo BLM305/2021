@@ -11,7 +11,7 @@
 ### Nov 9: [Document Object Model](Page_by_JS.html)
 * Evaluation of HW2 (no class work)
 
-### Nov 4: CW#8 -- [SubtleCrypto: SHA-1](Crypto.html)
+### Nov 4: CW#8 -- [SubtleCrypto: SHA](Crypto.html)
 
 * Make a copy of displayBlob.html in CW7 with name subtleCrypto.html
 * Remove all code related to displaying file contents
