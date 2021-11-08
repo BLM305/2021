@@ -1,12 +1,20 @@
 ## First Month
 
 ### Oct 28: CW#6 -- [Fetching Remote Files](CW6.html)
-* will be announced in LMS
+
+Put a copy of this file to your repo
+https://blm305.github.io/2021/work/CW6.html
+
+Modify title, xxx items, and the default URL (must be different for each student)
+
+Complete init() and check() functions so that xxx items on the page are filled with correct values. Battery level must be an integer percent value. Latitude/Longitude must be in this order, with 4 digits after the decimal point, separated by a comma.
+
+Take a partial screen shot of the page only (max 500px width) -- do not include the console. Put the image into the required PDF. 
 
 ### Oct 26: [Asynch Programming](Inspector.html)
 * Evaluation of HW1 (no class work)
 
-### Oct 21: [Quiz](../exam/Quiz1_2021)
+### Oct 21: [Quiz 1](../exam/Quiz1_2021)
 <br>
 
 ### Oct 19: CW#5 -- [Keyed collections](Inspector.html)
