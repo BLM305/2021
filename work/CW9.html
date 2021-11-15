@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Poisson Probabilities</title>
+
+  <style>
+    body { max-width: 440px; }
+    pre  { overflow-x: auto; }
+    img  { max-width: 100%; }
+    #out {
+        font-size: larger;
+        line-height: 1.4;
+        color: blue;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>Poisson Probabilities</h2>
+<pre id=out><b>Table</b></pre>
+
+<hr />
+<b>Sample code</b>
+<pre id=sample></pre>
+
+<hr />
+<b>Original table</b>
+<p>
+    <img src="CW9.jpg">
+    Ref: <a href="https://www.dummies.com/education/math/business-statistics/how-to-compute-poisson-probabilities/" target="NewTab">Poisson Table</a>
+</p>
+
+<script>
+"use strict";
+function poisson(x, λ, f=4) {
+    let p = Math.exp(-λ)
+    for (let k=1; k<=x; k++) p = p*λ/k
+    return p.toFixed(f)
+}
+function doTable() {
+    let head = a => '      '+ a.join('   ')
+    const L = [0.5, 1, 1.5, 2, 2.5, 3]
+    let b = [head(L.map((λ) => 'λ='+λ))]
+    for (let x=0; x<=8; x++) { 
+       let a = L.map(λ => poisson(x, λ))
+       b.push('x='+x+'  '+ a.join(' '))
+    }
+    return b.join('\n')
+}
+sample.innerText = poisson+'\n'+doTable
+out.innerText = doTable()
+</script>
+
+</body>
+</html>
