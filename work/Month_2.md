@@ -2,9 +2,36 @@
 
 ### Nov 23, 25: No class, no exam
 
-### Nov 18: CW#10
+### Nov 18: CW#10 -- [Event listeners](CW6.html)
 
-### Nov 16: CW#9
+Copy and modify your web page for CW6
+
+Listen to the following events:
+
+* b.onlevelchange, b.onchargingchange where b is BatteryManager
+* onoffline, ononline, onkeydown, onkeyup (using window object)
+
+Here is the desired output: ![desired output](CW10.jpg)
+
+Add your work to your home page and include a screenshot in LMS
+
+### Nov 16: CW#9 -- [Improve your private repo](CW9.html)
+
+**HW2: improve**
+
+* Include your name and avatar
+* All links must be to html pages
+* No external libraries or frameworks
+* No error on console (css, font, manifest, etc)
+* Show properly on narrow screen (400px)
+* HW1: improve or redo
+
+**HW1: improve**
+
+Make a copy of an existing math table. Include your code and an image of the original table.
+
+* screenshot of improved HW1 page
+* link to your main page (same as HW2)
 
 ### Nov 11: Quiz 2
 
