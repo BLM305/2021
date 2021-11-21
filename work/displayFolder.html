@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Remote URL or Local file </title>
+
+<style>
+  body { max-width: 500px; }
+  div { margin: 12px 0; }
+  img {
+    max-width: 100%;
+    border: 1px solid darkgray;
+  }
+  #remote {
+    width: 290px;
+    font: 13px arial, sans-serif;
+    margin: 14px 0;
+    border: 1px solid darkgray;
+    padding: 5px;
+  }
+  #sample, #out { overflow-x: auto; }
+  #disp1 { color: blue; }
+</style>
+</head>
+
+<body>
+<h2 id=title></h2>
+
+<div>
+  URL: 
+  <input type=text id=remote onchange='displayURL(this.value)'> <br>
+  <input type=file id=button onChange='displayBlob(this.files[0])'>
+  <button onclick="displayFolder()">Choose Folder</button>
+</div>
+<div id=msg>Select text or image </div>
+<pre id=disp1></pre> <img id=disp2 />
+
+<hr>
+<b>Sample code</b>
+<pre id=sample></pre>
+<hr>
+<p>Ref: <a href="Reading_files">Reading files</a>
+ </p>
+
+<script>
+"use strict";
+const RDR = new FileReader();
+function setMessage(txt, col) {
+    msg.innerText = txt
+    msg.style.color = col
+}
+function error(s) {
+    setMessage(s, 'red')
+}
+async function displayURL(u) {
+  try {
+    let r = await fetch(u)
+    if (r.ok) {
+        let b = await r.blob()
+        displayBlob(b)
+    } else error(r.status)
+  } catch (e) {
+    error(e)
+  }
+}
+function displayBlob(f) {
+    console.assert(f instanceof Blob)
+    setMessage(f.size+" bytes "+f.type)
+    disp1.innerText = ""; disp2.src = ""
+    if (f.type.startsWith("image")) {
+        RDR.readAsDataURL(f); //display image
+        RDR.onload = () => {disp2.src = RDR.result}
+    } else if (f.type.startsWith("text")) {
+        RDR.readAsText(f);  //display text
+        RDR.onload = () => {disp1.innerText = RDR.result}
+    } else {
+        msg.innerText += " -- Unknown"
+    }
+}
+async function displayFolder() {
+  try {
+    let h = await showDirectoryPicker()
+    let i = h.keys(), a = []
+    while (true) {
+        let v = (await i.next()).value
+        if (v) {
+            a.push(v)
+        } else {
+            setMessage(a.length+' files')
+            disp1.innerText = a.join('\n')
+            return
+        }
+    }
+  } catch (e) {
+    error(e)
+  }
+}
+title.innerText = document.title
+sample.innerText = displayURL+'\n'+displayFolder
+</script>
+
+</body>
+</html>
