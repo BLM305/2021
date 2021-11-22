@@ -13,13 +13,12 @@
     border: 1px solid darkgray;
   }
   #remote {
-    width: 290px;
-    font: 13px arial, sans-serif;
-    margin: 14px 0;
-    border: 1px solid darkgray;
-    padding: 5px;
+    width: 300px;
+    margin: 1em 0;
+    padding: 3px;
   }
-  #sample, #out { overflow-x: auto; }
+  #files { width: 240px; }
+  pre { overflow-x: auto; }
   #disp1 { color: blue; }
 </style>
 </head>
@@ -30,8 +29,8 @@
 <div>
   URL: 
   <input type=text id=remote onchange='displayURL(this.value)'> <br>
-  <input type=file id=button onChange='displayBlob(this.files[0])'>
-  <button onclick="displayFolder()">Choose Folder</button>
+  <input type=file id=files onChange='displayBlob(this.files[0])'>
+  <button id=folder onclick="displayFolder()">Choose Folder</button>
 </div>
 <div id=msg>Select text or image </div>
 <pre id=disp1></pre> <img id=disp2 />
@@ -56,10 +55,9 @@ function error(s) {
 async function displayURL(u) {
   try {
     let r = await fetch(u)
-    if (r.ok) {
-        let b = await r.blob()
-        displayBlob(b)
-    } else error(r.status)
+    if (!r.ok) throw 'Status '+r.status
+    let b = await r.blob()
+    displayBlob(b)
   } catch (e) {
     error(e)
   }
@@ -83,20 +81,18 @@ async function displayFolder() {
     let h = await showDirectoryPicker()
     let i = h.keys(), a = []
     while (true) {
-        let v = (await i.next()).value
-        if (v) {
-            a.push(v)
-        } else {
-            setMessage(a.length+' files')
-            disp1.innerText = a.join('\n')
-            return
-        }
+        let x = await i.next()
+        if (!x.value) break
+        a.push(x.value)
     }
+    setMessage(a.length+' files')
+    disp1.innerText = a.join('\n')
   } catch (e) {
     error(e)
   }
 }
 title.innerText = document.title
+if (!window.showDirectoryPicker) folder.hidden = true
 sample.innerText = displayURL+'\n'+displayFolder
 </script>
 
