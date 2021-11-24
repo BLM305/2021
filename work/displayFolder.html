@@ -40,8 +40,8 @@
 <pre id=sample></pre>
 <hr>
 <p>Ref: 
-  <a href="Reading_files">Reading files</a> &emsp;
-  <a href="await.html">await</a>
+  <a href="Reading_files" target=NewTab>Reading files</a> &emsp;
+  <a href="await.html" target=NewTab>await</a>
 </p>
 
 <script>
@@ -98,9 +98,10 @@ title.innerText = document.title
 sample.innerText = displayURL+'\n'+displayFolder
 if (!window.showDirectoryPicker) {
     folder.hidden = true
-    console.log('Not implemented: showDirectoryPicker')
+    error('Not implemented: showDirectoryPicker')
 }
 </script>
+<script src="../navbar.js"></script>
 
 </body>
 </html>
