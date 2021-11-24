@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="icon" href="../images/icon192.png">
+  <title>GitHub Users</title>
+  <style>
+    body {
+        max-width: 440px;
+    }
+    img {
+        padding-right: 12px; 
+        width: 64px;
+        float: left;
+    }
+    #out { color: blue; }
+  </style>
+</head>
+
+<body>
+
+<h2 id=title></h2>
+<input type=text id=usr value=blm-fsmvu onChange="readUser()">
+<p id=out></p>
+<hr />
+<b>Sample code</b>
+<pre id=sample></pre>
+<hr />
+<p>Ref: <a href="https://developer.github.com/v3/#rate-limiting" 
+   target=NewTab>GitHub Developer</a>
+</p>
+
+<script>
+"use strict";
+function error(e) {
+    out.innerText = txt
+    out.style.color = col
+    console.error(e)
+}
+async function toJSON(url) {
+  try {
+    let r = await fetch(url)
+    if (!r.ok) throw 'Status '+r.status
+    return await r.json()
+  } catch (e) {
+    error(e)
+  }
+}
+async function readUser() {
+    const URL = "https://api.github.com/users/"
+    let u = await toJSON(URL+usr.value)
+    if (!u || !u.login) 
+      throw (usr.value+' not found')
+    out.style.color = ''
+    //start with avatar
+    if (u.avatar_url)
+      out.innerHTML = `<img src="${u.avatar_url}">`
+    //add name and location
+    let s = (u.name || u.login)
+    if (u.location) s += ", "+u.location
+    out.innerHTML += s+'<BR>'; console.log(s)
+    //add link to GitHub 
+    let h = "github.com/"+u.login
+    out.innerHTML += 
+    `<a href="https://${h}" target=NewTab>${h}</a>`
+    //add repo count and repo names
+    let p = u.public_repos+" repos"
+    out.innerHTML += '<BR>'+p+'<BR><BR>'
+    let b = await toJSON(URL+u.login+"/repos")
+    if (b.length) out.innerHTML += 
+        b.map(x => x.name).join(", ")
+}
+    title.innerText = document.title
+    sample.innerText = toJSON +'\n'+ readUser
+    out.innerText = "Reading data"
+    readUser()
+</script>
+
+</body>
+</html>

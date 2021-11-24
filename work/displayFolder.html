@@ -39,8 +39,10 @@
 <b>Sample code</b>
 <pre id=sample></pre>
 <hr>
-<p>Ref: <a href="Reading_files">Reading files</a>
- </p>
+<p>Ref: 
+  <a href="Reading_files">Reading files</a> &emsp;
+  <a href="await.html">await</a>
+</p>
 
 <script>
 "use strict";
@@ -49,8 +51,9 @@ function setMessage(txt, col) {
     msg.innerText = txt
     msg.style.color = col
 }
-function error(s) {
-    setMessage(s, 'red')
+function error(e) {
+    setMessage(e, 'red')
+    console.error(e)
 }
 async function displayURL(u) {
   try {
@@ -92,8 +95,11 @@ async function displayFolder() {
   }
 }
 title.innerText = document.title
-if (!window.showDirectoryPicker) folder.hidden = true
 sample.innerText = displayURL+'\n'+displayFolder
+if (!window.showDirectoryPicker) {
+    folder.hidden = true
+    console.log('Not implemented: showDirectoryPicker')
+}
 </script>
 
 </body>
