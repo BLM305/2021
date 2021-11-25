@@ -14,6 +14,7 @@
         width: 64px;
         float: left;
     }
+    pre { overflow-x: auto; }
     #out { color: blue; }
   </style>
 </head>
@@ -22,7 +23,7 @@
 
 <h2 id=title></h2>
 <input type=text id=usr value=blm-fsmvu onChange="readUser()">
-<p id=out></p>
+<p id=out>Reading data</p>
 <hr />
 <b>Sample code</b>
 <pre id=sample></pre>
@@ -35,14 +36,24 @@
 <script>
 "use strict";
 function error(e) {
-    out.innerText = txt
-    out.style.color = col
+    out.innerText = e
+    out.style.color = 'red'
     console.error(e)
+}
+function cause(s) {
+  switch (s) {
+    case 403:
+      return 'Rate limit exceeded'
+    case 404:
+      return usr.value+' not found'
+    default:
+      return 'Status '+s
+  }
 }
 async function toJSON(url) {
   try {
     let r = await fetch(url)
-    if (!r.ok) throw 'Status '+r.status
+    if (!r.ok) throw cause(r.status)
     return await r.json()
   } catch (e) {
     error(e)
@@ -50,31 +61,29 @@ async function toJSON(url) {
 }
 async function readUser() {
     const URL = "https://api.github.com/users/"
+    const BR = '<BR>'
     let u = await toJSON(URL+usr.value)
-    if (!u || !u.login) 
-      throw (usr.value+' not found')
+    if (!u || !u.login) return
     out.style.color = ''
     //start with avatar
-    if (u.avatar_url)
-      out.innerHTML = `<img src="${u.avatar_url}">`
+    out.innerHTML = `<img src="${u.avatar_url}">`
     //add name and location
     let s = (u.name || u.login)
-    if (u.location) s += ", "+u.location
-    out.innerHTML += s+'<BR>'; console.log(s)
+    if (u.location) s += ', '+u.location
+    out.innerHTML += s+BR; console.log(s)
     //add link to GitHub 
     let h = "github.com/"+u.login
     out.innerHTML += 
     `<a href="https://${h}" target=NewTab>${h}</a>`
     //add repo count and repo names
-    let p = u.public_repos+" repos"
-    out.innerHTML += '<BR>'+p+'<BR><BR>'
+    let n = u.public_repos
+    out.innerHTML += BR+`${n} public repos`+BR+BR
+    if (!n) return
     let b = await toJSON(URL+u.login+"/repos")
-    if (b.length) out.innerHTML += 
-        b.map(x => x.name).join(", ")
+    out.innerHTML += b.map(x => x.name).join(", ")
 }
     title.innerText = document.title
     sample.innerText = toJSON +'\n'+ readUser
-    out.innerText = "Reading data"
     readUser()
 </script>
 <script src="../navbar.js"></script>

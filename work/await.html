@@ -7,34 +7,39 @@
   <title>Promise: then() vs await</title>
   <style>
     body { max-width: 400px; }
+    details, ul { color: blue; }
+    span { color: initial; }
   </style>
 </head>
 
 <body>
 <h2>Promise: then() vs await</h2>
-<p>Consider p and f (either variable or expression) where
+<p>Consider p and f (variable or expression) where
 <ul>
 <li>p is a Promise</li>
 <li>f is a function</li>
 </ul></p>
-<p><code>p.then(f)</code> and <code>f(await p)</code>
-are the same, <br>as shown in the examples below.</p>
+<p><code>p.then(f)</code> is the same as <code>f(await p)</code>,<br>
+  as shown in the examples below.</p>
 <p>Ex 1: <code>navigator.getBattery()</code> is a Promise,<br>
 <code>display</code> is a function
-<ul>
-<li><code>navigator.getBattery().then(display)</code></li>
-<li><code>display(await navigator.getBattery())</code></li>
-</ul></p>
+<details>
+  <summary><code>navigator.getBattery().then(display)</code></summary>
+  &emsp;<span>is the same as</span> <br>
+  &emsp;<code>display(await navigator.getBattery())</code>
+</details>
+</p>
 <p>Ex 2: <code>u</code> is a URL, <code>fetch(u)</code> is a Promise,<br>
 call on the Response <code>r.json()</code> is a Promise,<br>
-<code>display</code> is a function
-<ul>
-<li><code>fetch(u).then(r => r.json()).then(display)</code></li>
-<li><code>r=await fetch(u); display(await r.json())</code></li>
-</ul></p>
+<code>ask</code> is a function
+<details>
+  <summary><code>fetch(u).then(r => r.json()).then(ask)</code></summary>
+  &emsp;<span>is the same as</span> <br>
+  &emsp;<code>r=await fetch(u); ask(await r.json())</code>
+</details>
+</p>
 <h3>References</h3>
-<p>First I wrote "exactly the same," but it turns out they are not.
-  It is strongly recommended 
+<p>They are not <i>exactly</i> the same, it is strongly recommended 
   <a href="https://mathiasbynens.be/notes/async-stack-traces">here</a>
   that <code>await</code> should be prefered. See also <a 
   href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await">
