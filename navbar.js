@@ -22,6 +22,7 @@ const NAV =
         <a href="/2021/work/First%20Week">First Week</a>
         <a href="/2021/work/Month_1">October</a>
         <a href="/2021/work/Month_2">November</a>
+        <a href="/2021/work/Month_3">December</a>
       </div>
     </li>
 </ul>`

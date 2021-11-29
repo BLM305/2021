@@ -61,7 +61,7 @@ Text, image, and error should be displayed correctly.
 Include a screenshot that shows the page and the console.<br>
 Your modified code must be readable.
 
-<script src="/2021/navbar.js"></script>
+<script src="../navbar.js"></script>
 <style>
   body { 
     max-width: 600px; 

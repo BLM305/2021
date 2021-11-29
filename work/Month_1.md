@@ -74,7 +74,7 @@ Use the browser tools (console) only -- no HTML, no files
 (just complete this line, no need to define a function) <br>
 Put into LMS a single screenshot showing both answers in the console.
 
-<script src="/2021/navbar.js"></script>
+<script src="../navbar.js"></script>
 <style>
   body { 
     max-width: 600px; 

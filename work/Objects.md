@@ -17,7 +17,7 @@ c.toString()  //"[object Object]"
 e.toString()  //"Entry: 3 events"
 ```
 
-<script src="/2021/navbar.js"></script>
+<script src="../navbar.js"></script>
 <style>
   body { 
     max-width: 600px; 
