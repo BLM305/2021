@@ -54,7 +54,7 @@ async function toJSON(url) {
   try {
     let r = await fetch(url)
     if (!r.ok) throw cause(r.status)
-    return await r.json()
+    return r.json()
   } catch (e) {
     error(e)
   }
