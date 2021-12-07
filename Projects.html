@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="https://blm-fsmvu.github.io/305/images/icon192.png">
+    <title>Student Projects </title>
+  <style>
+    body { max-width: 600px; }
+    iframe {
+        width: 430px;
+    }
+    iframe, ul {
+        display: inline-block;
+        overflow-y: scroll;
+        vertical-align: top;
+        box-sizing: border-box;
+        border: none;
+        height: 96vh;
+        margin: 0;
+    }
+    ul {
+        font-size: 16px;
+        background: antiquewhite;
+        width: 140px;
+        padding: 4px;
+        list-style: none;
+    }
+    li span { color: red; }
+    li { margin: 10px; }
+  </style>
+</head>
+
+<body>
+<!-- <h2 id=title></h2>
+<h2>BLM 305 -- 2021 </h2>
+<p>Links to the weekly work for each student</p> -->
+<ul id=out></ul>
+<!-- <iframe name='Project'></iframe> moved to JS -->
+
+<script>
+"use strict";
+const data = 
+`1721221024	ABANİK	https://amineceydaabanik.github.io/AdvancedProgramming/
+1921221035	ADAŞ	https://adaskaan.github.io/BLM19305E_HW/
+1821221012	AKDENİZ	https://vtakdeniz.github.io/Advanced_programming/
+1821221018	AKGÜL	https://hfurkanakgul.github.io/BLM19305_E/
+1721221214	AKYOL	https://emirhanakyol1721221214.github.io/JSRep/HW2/
+1921221354	ALAKKARI	https://tahaalakkari.github.io/Advance-Programming/
+1921221004	AVAR	https://myahyavar.github.io/Advanced/
+1821221022	BALCI	https://mervebalcii.github.io/Advanced-Programming-Techniques/
+Ç1521231041	BOZTEPE	https://busraboztepe.github.io/advancedProgramming/
+1421221029	BULUR	https://mehmetmuhammetbulur.github.io/JS/
+1821221025	ÇINAR	https://mervecinar.github.io/BLM19305E/
+1821221009	DEREYURT	https://dereyurtali.github.io/305/
+1821221014	DİRİĞ	https://samidirig.github.io/Advanced-Programming/
+1821221254	EID	https://abdullah-eid-99.github.io/Advanced-Programming-Techniques/
+1821221020	ERÇAKIR	https://muhammedfatihercakir.github.io/Advanced_Programming/
+1821221035	GÜLŞEN	https://burakgulsen.github.io/2021-Advance-Programming/
+Ç1721241006	GÜNBULAK	https://halil-ibrahim-gunbulak.github.io/AdvanceProgramming-WorkSpace/
+1821221021	İLHAN	https://receptayyipilhan.github.io/Advanced-Programming/
+1521221052	KARABULUT	https://furkankarabulut.github.io/JS/
+1821221043	KARADUT	https://furkanahmetkaradut.github.io/advanced-programming-techniques/
+1821221013	KAZAN	https://ranasevdenur.github.io/Advenced-Programming-Tech/
+1721221201	MOUSTAFA	https://nagkichanmoustafa.github.io/305/index.html
+1721221019	ÖZEN	https://muhammetfurkanozenn.github.io/AdvanceProgrammingLangClass/
+1621221014	ÖZKAN	https://fatihozkan03.github.io/JS/
+1721221028	ÖZPOLAT	https://besimeozpolat.github.io/AdvancePrograminng/
+1821221030	SAĞOL	https://ssagol.github.io/BLM19305E_2021/
+1621221025	SARAÇ	https://uveyssarac.github.io/AdvancedRepo/
+1621221026	SATAN	https://oguzsatan.github.io/JS/
+1821221023	TANRIVERDİ	https://xemretanriverdi.github.io/BLM305/
+1821221003	TOSUN	https://mevluttosun.github.io/advanced_homeworks/
+1821221263	TURKI	https://imenturki0.github.io/Advanced-Programming-Techniques/
+1821221032	UGUR	https://gayeugur.github.io/BLM19305E-2021/
+1821221007	UZUN	https://yusufnadiruzun.github.io/yusuf-nadir-uzun/
+1621221034	YAHIA	https://aishakifah.github.io/advanced_programing_BLM19305E/
+1821221001	YANIK	https://ahmetyanikk.github.io/BLM19305E/
+1821221029	YILDIRIM	https://kevserbusrayildirim.github.io/AdvancedProgramming/index.html
+1821221024	YILMAZ	https://emineyilmazz.github.io/Advanced-Programming/
+1621221024	YURDAKUL	https://serhat-yurdakul.github.io/AdvancedProgrammingTechniques/`
+/* 
+1821221251	ALABED	xx
+1621221040	AHMEDOĞLU	https://ahmadkaramahmedoglu1.github.io/AdvancedPrograming/
+1821221008	ERGÖÇEN	https://fergocen.github.io/BLM305/
+1621221030	KESKİN	https://keskinevren.github.io/Advence-Programming/
+ */
+const openTarget = h => window.open(h, 'Project') 
+function setTitle(e) {
+    console.clear(); document.title = e.target.innerText
+}
+function toItem(x) {
+    let [id, n, p] = x.split('\t')
+    return "<a href='"+p+"' target=Project>"+n+"</a>"
+}
+out.onclick = setTitle
+let a = data.split('\n').map(toItem)
+out.innerHTML = '<li>'+a.join('\n<li>')
+if (innerWidth >= 600) {
+    let f = document.createElement('iframe')
+    f.name = 'Project'; document.body.append(f)
+}
+</script>
+</body>
+</html>
