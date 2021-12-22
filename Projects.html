@@ -58,10 +58,7 @@ const data =
 1821221020	ERÇAKIR	https://muhammedfatihercakir.github.io/Advanced_Programming/
 1821221035	GÜLŞEN	https://burakgulsen.github.io/2021-Advance-Programming/
 Ç1721241006	GÜNBULAK	https://halil-ibrahim-gunbulak.github.io/AdvanceProgramming-WorkSpace/
-1821221021	İLHAN	https://receptayyipilhan.github.io/Advanced-Programming/
 1521221052	KARABULUT	https://furkankarabulut.github.io/JS/
-1821221043	KARADUT	https://furkanahmetkaradut.github.io/advanced-programming-techniques/
-1821221013	KAZAN	https://ranasevdenur.github.io/Advenced-Programming-Tech/
 1721221201	MOUSTAFA	https://nagkichanmoustafa.github.io/305/index.html
 1721221019	ÖZEN	https://muhammetfurkanozenn.github.io/AdvanceProgrammingLangClass/
 1621221014	ÖZKAN	https://fatihozkan03.github.io/JS/
@@ -78,19 +75,22 @@ const data =
 1821221001	YANIK	https://ahmetyanikk.github.io/BLM19305E/
 1821221029	YILDIRIM	https://kevserbusrayildirim.github.io/AdvancedProgramming/index.html
 1821221024	YILMAZ	https://emineyilmazz.github.io/Advanced-Programming/
-1621221024	YURDAKUL	https://serhat-yurdakul.github.io/AdvancedProgrammingTechniques/`
-/* 
-1821221251	ALABED	xx
+1621221024	YURDAKUL	https://serhat-yurdakul.github.io/AdvancedProgrammingTechniques/
+Eksik ya da Devamsız:
 1621221040	AHMEDOĞLU	https://ahmadkaramahmedoglu1.github.io/AdvancedPrograming/
 1821221008	ERGÖÇEN	https://fergocen.github.io/BLM305/
+1821221021	İLHAN	https://receptayyipilhan.github.io/Advanced-Programming/
+1821221043	KARADUT	https://furkanahmetkaradut.github.io/advanced-programming-techniques/
+1821221013	KAZAN	https://ranasevdenur.github.io/Advenced-Programming-Tech/
 1621221030	KESKİN	https://keskinevren.github.io/Advence-Programming/
- */
+`
 const openTarget = h => window.open(h, 'Project') 
 function setTitle(e) {
     console.clear(); document.title = e.target.innerText
 }
 function toItem(x) {
     let [id, n, p] = x.split('\t')
+    if (!n) return x
     return "<a href='"+p+"' target=Project>"+n+"</a>"
 }
 out.onclick = setTitle
